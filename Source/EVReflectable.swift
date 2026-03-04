@@ -274,34 +274,15 @@ extension EVReflectable where Self: NSObject {
 
 
 extension EVReflectable {
-    /**
-     Implementation for Equatable ==
-     
-     - parameter lhs: The object at the left side of the ==
-     - parameter rhs: The object at the right side of the ==
-     
-     - returns: True if the objects are the same, otherwise false.
-     */
-    static public func == (lhs: EVReflectable, rhs: EVReflectable) -> Bool {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
         if let lhso = lhs as? NSObject, let rhso = rhs as? NSObject {
             return EVReflection.areEqual(lhso, rhs: rhso)
         }
         return lhs.isEqual(rhs)
     }
-    
-    /**
-     Implementation for Equatable !=
-     
-     - parameter lhs: The object at the left side of the ==
-     - parameter rhs: The object at the right side of the ==
-     
-     - returns: False if the objects are the the same, otherwise true.
-     */
-    static public func != (lhs: EVReflectable, rhs: EVReflectable) -> Bool {
-        if let lhso = lhs as? NSObject, let rhso = rhs as? NSObject {
-            return !EVReflection.areEqual(lhso, rhs: rhso)
-        }
-        return !lhs.isEqual(rhs)
+
+    public static func != (lhs: Self, rhs: Self) -> Bool {
+        !(lhs == rhs)
     }
     
     // MARK: - extending the base implementation for the overridable functions
