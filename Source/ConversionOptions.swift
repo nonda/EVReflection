@@ -38,15 +38,15 @@ public struct ConversionOptions: OptionSet, CustomStringConvertible {
     public static let Encoding = ConversionOptions(rawValue: 32)
     
     // Just for bein able to show all
-    public static var All: ConversionOptions = [PropertyConverter, PropertyMapping, SkipPropertyValue, KeyCleanup, Decoding, Encoding]
+    nonisolated(unsafe) public static var All: ConversionOptions = [PropertyConverter, PropertyMapping, SkipPropertyValue, KeyCleanup, Decoding, Encoding]
     /// Default used for NSCoding
-    public static var DefaultNSCoding: ConversionOptions = [None]
+    nonisolated(unsafe) public static var DefaultNSCoding: ConversionOptions = [None]
     /// Default used for comparing / hashing functions
-    public static var DefaultComparing: ConversionOptions = [PropertyConverter, PropertyMapping, SkipPropertyValue]
+    nonisolated(unsafe) public static var DefaultComparing: ConversionOptions = [PropertyConverter, PropertyMapping, SkipPropertyValue]
     /// Default used for deserialization
-    public static var DefaultDeserialize: ConversionOptions = [PropertyConverter, PropertyMapping, SkipPropertyValue, KeyCleanup, Decoding]
+    nonisolated(unsafe) public static var DefaultDeserialize: ConversionOptions = [PropertyConverter, PropertyMapping, SkipPropertyValue, KeyCleanup, Decoding]
     /// Default used for serialization
-    public static var DefaultSerialize: ConversionOptions = [PropertyConverter, PropertyMapping, SkipPropertyValue, Encoding]
+    nonisolated(unsafe) public static var DefaultSerialize: ConversionOptions = [PropertyConverter, PropertyMapping, SkipPropertyValue, Encoding]
     
     /// Get a nice description of the ConversionOptions
     public var description: String {
